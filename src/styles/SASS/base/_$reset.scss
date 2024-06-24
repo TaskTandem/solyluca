@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
 }
 
 ::selection {
-  background-color: $clr;
+  background-color: $red-400;
   color: $bg;
 }
 
@@ -61,7 +61,7 @@ body {
   font-size: 100%;
   font-family: $font;
   color: $clr;
-  background-color: $bg;
+  background-color: $gray-50;
   #content {
     flex-grow: 1;
     display: flex;
@@ -74,7 +74,7 @@ body {
     width: .5rem;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: $secondary;
+    background-color: $red-200;
   }
   body {
     #content {

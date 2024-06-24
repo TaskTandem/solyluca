@@ -1,0 +1,71 @@
+.header {
+  @include flex(row, nowrap, center, center);
+  color: $red-0;
+  background: $red-450;
+  padding: .5em 1em;
+  height: 60px;
+  svg {
+    font-size: 1.5rem;
+  }
+  .menu {
+    @include flex(column, nowrap, start, center);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    padding: 1em;
+    background: $red-400;
+    transition: left 200ms ease-in-out;
+    z-index: 2;
+    svg {
+      align-self: start;
+    }
+    .links {
+      @include flex(column, nowrap, start, center);
+      gap: .5rem;
+      text-align: center;
+      margin: auto;
+      padding: 0 1rem;
+      overflow-y: scroll;
+      .link {
+        font-size: 1.25rem;
+        animation: fade_in 200ms ease-in;
+      }
+    }
+    &.open {
+      left: 0%;
+    }
+  }
+  .logo-container {
+    flex-grow: 1;
+    @include flex(row, nowrap, center, center);
+    .logo {
+      h1 {
+        font-size: 1.15rem;
+        font-weight: 500;
+      }
+    }
+  }
+  .search {
+    @include flex(row, nowrap, center, center);
+    gap: 1rem;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    padding: .5em 1em;
+    height: 60px;
+    background: $red-400;
+    transition: right 200ms ease-in-out;
+    &.open {
+      right: 0%;
+    }
+    input {
+      flex-grow: 1;
+      background: $bg;
+      color: $clr;
+      padding: .5em 1em;
+    }
+  }
+}

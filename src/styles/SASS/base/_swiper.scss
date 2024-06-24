@@ -9,16 +9,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 2rem;
-}
-
-.swiper-slide img {
-  margin: 0 auto;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .swiper-pagination-bullet  {
-  background: $prim !important;
+  background: $red-400 !important;
+}
+
+.categories {
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  color: $bg;
+  background: $red-400;
+  padding: 1em;
+  .swiper-slide {
+    width: auto;
+    font-weight: 600;
+  }
 }

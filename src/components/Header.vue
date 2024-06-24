@@ -1,14 +1,23 @@
 <script setup>
 //vue
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-//vue-router
-import { RouterView } from 'vue-router'
-//components
-import Header from '@/components/Header.vue'
-import Categories from './components/Categories.vue'
-//stores
-import { useWindowStore } from './stores/index'
+import { ref } from 'vue';
+//store
+import { useWindowStore } from '@/stores'
 const $W = useWindowStore()
+
+const search = ref(false)
+const menu = ref(false)
+const children = ref([])
+
+const getChildren = ({name, id}) => {
+  const c = categories.value.find(n => n.name === name).children
+  if(c.length > 0) {
+    // children.value.push( {name: 'Ver todos', id}, ...c)
+    children.value.push( {name: 'Ver todos'}, ...c)
+  } else {
+    // goTo(id);
+  }
+}
 
 const categories = ref([
   {
@@ -158,21 +167,41 @@ const categories = ref([
   }
 ])
 
-onMounted(() => {
-  window.addEventListener("resize", $W.handleSize);
-});
-
-onBeforeUnmount(() => {
-  window.addEventListener("resize", $W.handleSize);
-});
 </script>
 
 <template>
-  <body>
-    <Header />
-    <div id="content">
-      <RouterView :key="$route.fullPath" />
+  <div class="header">
+
+    <fa icon="bars" @click="menu = true" />
+
+    <div class="menu" :class="{open: menu}">
+      <fa v-if="children.length === 0" @click="menu = false" icon="times" />
+      <fa v-else @click="children = []" icon="arrow-left" />
+      <div class="links">
+        <template v-if="children.length === 0">
+          <span v-for="(link, index) in categories" :key="index" @click="getChildren(link)" class="link">{{ link.name.toUpperCase() }}</span>
+        </template>
+
+        <template v-else>
+          <span v-for="(link, index) in children" :key="index" class="link">{{ link.name.toUpperCase() }}</span>
+        </template>
+      </div>
     </div>
-    <Categories :data="categories" />
-  </body>
+
+    <div class="logo-container">
+      <div class="logo">
+        <h1>SOL Y LUCA</h1>
+        <span>by Pelado</span>
+      </div>
+    </div>
+
+    <fa @click="search = true" icon="search" />
+
+    <div class="search" :class="{open: search}">
+      <fa icon="search" />
+      <input type="text" placeholder="buscar">
+      <fa @click="search = false" icon="times" />
+    </div>
+
+  </div>
 </template>
