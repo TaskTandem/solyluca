@@ -1,9 +1,13 @@
 .header {
+  position: fixed;
+  top: 0;
   @include flex(row, nowrap, center, center);
   color: $red-0;
   background: $red-450;
   padding: .5em 1em;
+  width: 100%;
   height: 60px;
+  z-index: 2;
   svg {
     font-size: 1.5rem;
   }
@@ -41,6 +45,7 @@
     flex-grow: 1;
     @include flex(row, nowrap, center, center);
     .logo {
+      text-align: center;
       h1 {
         font-size: 1.15rem;
         font-weight: 500;

@@ -173,6 +173,6 @@ onBeforeUnmount(() => {
     <div id="content">
       <RouterView :key="$route.fullPath" />
     </div>
-    <Categories :data="categories" />
+    <!-- <Categories :data="categories" /> -->
   </body>
 </template>
