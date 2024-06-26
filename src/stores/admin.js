@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { fetchWrapper } from '../helpers/fetchWrapper'
 
 export const useAdminStore = defineStore('admin', () => {
-
+  const carrousel = ref(false)
   const logged = computed(() => {
     return !!sessionStorage.getItem("token")
   })
@@ -19,6 +19,6 @@ export const useAdminStore = defineStore('admin', () => {
     }
   }
 
-  return { logged, login }
+  return { logged, login, carrousel }
   }
 )

@@ -7,8 +7,9 @@ import { RouterView } from 'vue-router'
 import Header from '@/components/Header.vue'
 import Categories from './components/Categories.vue'
 //stores
-import { useWindowStore } from './stores/index'
+import { useWindowStore, useAdminStore } from './stores/index'
 const $W = useWindowStore()
+const $A = useAdminStore()
 
 const categories = ref([
   {
@@ -168,11 +169,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <body>
-    <Header />
-    <div id="content">
-      <RouterView :key="$route.fullPath" />
-    </div>
-    <!-- <Categories :data="categories" /> -->
-  </body>
+  <Header />
+  <div id="content">
+    <RouterView :key="$route.fullPath" />
+  </div>
+  <Categories v-if="$A.carrousel" :data="categories" />
 </template>
