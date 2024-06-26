@@ -8,6 +8,13 @@
     p {
       margin: .5rem 0;
     }
+    a {
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+    svg {
+      margin-left: .25rem;
+    }
   }
   .section {
     @include flex(row, wrap, center, center);

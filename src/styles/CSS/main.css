@@ -290,6 +290,13 @@ body #content {
 .home-container .about p {
   margin: 0.5rem 0;
 }
+.home-container .about a {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.home-container .about svg {
+  margin-left: 0.25rem;
+}
 .home-container .section {
   display: flex;
   flex-flow: row wrap;
