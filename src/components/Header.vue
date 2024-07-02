@@ -2,9 +2,8 @@
 //vue
 import { ref } from 'vue';
 //store
-import { useWindowStore, useAdminStore } from '@/stores'
+import { useWindowStore } from '@/stores'
 const $W = useWindowStore()
-const $A = useAdminStore()
 
 const search = ref(false)
 const menu = ref(false)
@@ -189,7 +188,7 @@ const categories = ref([
       </div>
     </div>
 
-    <div @click="$A.carrousel = !$A.carrousel" class="logo-container">
+    <div class="logo-container">
       <div class="logo">
         <h1>SOL Y LUCA</h1>
         <span>by Pelado</span>

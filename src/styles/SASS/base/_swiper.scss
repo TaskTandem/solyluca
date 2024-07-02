@@ -5,6 +5,13 @@
   margin-right: auto;
 }
 
+.swiper-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-height: 200px;
+}
+
 .swiper-slide {
   display: flex;
   justify-content: center;
@@ -13,17 +20,4 @@
 
 .swiper-pagination-bullet  {
   background: $red-400 !important;
-}
-
-.categories {
-  position: fixed;
-  bottom: 0;
-  height: auto;
-  color: $bg;
-  background: $red-450;
-  padding: 1em;
-  .swiper-slide {
-    width: auto;
-    font-weight: 600;
-  }
 }
